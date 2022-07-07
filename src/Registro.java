@@ -90,14 +90,14 @@ public class Registro {
 		System.out.println("Ingrese email: ");
 		this.email = teclado.next();
 		
-/*		Checkemail checkemail = new Checkemail(this.email);
+		Checkemail checkemail = new Checkemail(this.email);
 		boolean flemail = true;
 		do {
 			
-			if (checkemail.sintaxemail() && checkemail.sintaxemail()) flemail = false;
+			if (checkemail.sintaxemail() ) flemail = false;
 
 		}
-		while (flemail);*/
+		while (flemail);
 		
 		
 		

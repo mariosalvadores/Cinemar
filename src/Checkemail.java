@@ -1,5 +1,6 @@
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.Scanner;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -35,19 +36,25 @@ public class Checkemail {
 		if (rs == null) 
 			exem=true;
 		else	
-			System.out.println("el email ya existe ingrese uno diferente !!");
-		
+			System.out.println("--> el email ya existe ingrese uno diferente !!");
+			
 		return exem;
 	}
 	
 	public boolean sintaxemail() {
-		
-		Pattern pattern = Pattern.compile("^([0-9a-zA-Z]+[-._+&])*[0-9a-zA-Z]+@([-0-9a-zA-Z]+[.])"
+		Scanner teclado = new Scanner(System.in);
+		boolean flsintax = false;
+		do {
+			Pattern pattern = Pattern.compile("^([0-9a-zA-Z]+[-._+&])*[0-9a-zA-Z]+@([-0-9a-zA-Z]+[.])"
 				+ "+[a-zA-Z]{2,6}$");
-		Matcher matcher = pattern.matcher(email);
-		if (! matcher.matches())
-			System.out.println("email invalido !!");
-		return matcher.matches();
+			Matcher matcher = pattern.matcher(email);
+			System.out.println("-- > email invalido !!");
+			System.out.println("Ingrese email: ");
+			this.email = teclado.next();
+			flsintax = matcher.matches();
+		}
+		while (!flsintax);
+		return flsintax;
 		
 	}
 
