@@ -22,11 +22,11 @@ public class Conexion {
 
 		try {
 			Class.forName(JDBC_DRIVER);
-			System.out.println("Conectando a la bdd..");
+			System.out.println("Conectando a la bdd...");
 			conn=DriverManager.getConnection(DB_URL,USER,PASS);
 
          }catch(Exception e) {
-        	 System.out.println("ERROR DE CONEXION");
+        	 System.out.println("ERROR DE CONEXION !!");
 		}
 		
 	}
@@ -41,8 +41,6 @@ public class Conexion {
 	}
 	
 	public void realizaConsulta(String sql) throws SQLException {
-		
-		System.out.println("Creando Consulta");
 		stmt=conn.createStatement();
 		stmt.executeUpdate(sql);	
 	}

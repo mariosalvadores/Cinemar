@@ -1,4 +1,7 @@
-
+/*
+ *  Objeto Usuario
+ *  
+ */
 public class Usuario {
 	
 	private int id_usuario;

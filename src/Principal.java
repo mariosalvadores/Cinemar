@@ -9,45 +9,53 @@ public class Principal {
 	// Menu principal de ingreso
 	
 	Scanner teclado = new Scanner(System.in);
-	System.out.println("Sistema de reservas ---- CINEMAR");
-	System.out.println("Selecciones una opcion");
-	System.out.println("1 --> Ingresar");
-	System.out.println("2 --> Registro");
-	System.out.println("9 --> Salir");
-	int opcion = teclado.nextInt();
+	int opcion =0;
 	
-	switch (opcion)
-	
-	{
+	do {
+		System.out.println("Sistema de reservas ---- CINEMAR");
+		System.out.println("Selecciones una opcion");
+		System.out.println("1 --> Ingresar");
+		System.out.println("2 --> Registro");
+		System.out.println("9 --> Salir");
+		opcion = teclado.nextInt();
 		
-		case 1:
-			//Login de usuario
-			System.out.println("Ingrese email: ");
-			String email = teclado.next();
-			System.out.println("Ingrese password: ");
-			String password = teclado.next();
-			Login login = new Login(email,password);
-			Usuario user = login.ingresar();
-			while(user!=null) {
-				
-				if(user.getTipousr() == 1)
-					System.out.println("Acceso a menu de administracion");
-					else
+		switch (opcion)
+		
+		{
+			
+			case 1:
+				//Login de usuario
+				System.out.println("Ingrese email: ");
+				String email = teclado.next();
+				System.out.println("Ingrese password: ");
+				String password = teclado.next();
+				Login login = new Login(email,password);
+				Usuario user = login.ingresar();
+				while(user!=null) {
+					
+					if(user.getTipousr() == 1)
+						System.out.println("Acceso a menu de administracion");
+						else
 						System.out.println("Acceso a menu de usuarios");
-			}
-			break;
-			
-		case 2:
-			//Registro de usario
-			Registro registro = new Registro(0, null, null, null, null, 0, false, false);
-			registro.cargardatos();
-			break;
-			
-		case 9:
-			break;
-	}
+				}
+				break;
+				
+			case 2:
+				//Registro de usario
+				Registro registro = new Registro(0, null, null, null, null, 0, false, false);
+				registro.cargardatos();
+				break;
+				
+			case 9:
+				System.out.println("Cinemar le da las gracias por su preferencia,"
+						+ "lo esperamos pronto");
+				break;
+			default:
+				System.out.println("Opcion no valida !!");
+				opcion = 0;
+		}
 		
-
+	} while(opcion !=9 );
 	}
 }
 
