@@ -52,7 +52,7 @@ public class Login {
 			Boolean tarjetauser = rs.getBoolean("tarjeta_usuario");
 			Boolean estadouser = rs.getBoolean("estado_usuario");
 			user = new Usuario(id_user,nombre,apellido,email,passuser,tipouser,tarjetauser,estadouser);
-			System.out.println("Bienvenido/a : "+nombre);
+			//System.out.println("Bienvenido/a : "+nombre);
 			return user;
 					
 		}

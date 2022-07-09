@@ -2,11 +2,8 @@ DROP DATABASE IF EXISTS cinemar;
 CREATE DATABASE cinemar;
 USE cinemar;
 
-
-
-
 CREATE TABLE pelicula (
-                id_pelicula INT AUTO_INCREMENT NOT NULL,
+                id_pelicula INT AUTO_INCREMENT,
                 titulo_pelicula VARCHAR(30) NOT NULL,
                 genero_pelicula INT NOT NULL,
                 tipo_pelicula INT NOT NULL,
@@ -19,7 +16,7 @@ CREATE TABLE pelicula (
 
 
 CREATE TABLE sala (
-                id_sala INT AUTO_INCREMENT NOT NULL,
+                id_sala INT AUTO_INCREMENT,
                 id_pelicula INT,
                 tipo_sala BOOLEAN NOT NULL,
                 nombre_sala VARCHAR(10) NOT NULL,
@@ -29,7 +26,7 @@ CREATE TABLE sala (
 
 
 CREATE TABLE butaca (
-                id_butaca INT AUTO_INCREMENT NOT NULL,
+                id_butaca INT AUTO_INCREMENT,
                 id_sala INT,
                 tipo_butaca BOOLEAN NOT NULL,
                 fila_butaca INT NOT NULL,
@@ -39,7 +36,7 @@ CREATE TABLE butaca (
 
 
 CREATE TABLE usuario (
-                id_usuario INT AUTO_INCREMENT NOT NULL,
+                id_usuario INT AUTO_INCREMENT,
                 nombre_usuario VARCHAR(15) NOT NULL,
                 apellido_usuario VARCHAR(15) NOT NULL,
                 email_usuario VARCHAR(40) NOT NULL,
@@ -52,7 +49,7 @@ CREATE TABLE usuario (
 
 
 CREATE TABLE reserva (
-                id_reserva INT AUTO_INCREMENT NOT NULL,
+                id_reserva INT AUTO_INCREMENT,
                 id_pelicula INT,
                 id_usuario INT,
                 PRIMARY KEY (id_reserva)
@@ -60,7 +57,7 @@ CREATE TABLE reserva (
 
 
 CREATE TABLE descuento (
-                id_descuento INT AUTO_INCREMENT NOT NULL,
+                id_descuento INT AUTO_INCREMENT,
                 id_reserva INT,
                 porcentaje_descuento INT NOT NULL,
                 PRIMARY KEY (id_descuento)

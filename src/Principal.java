@@ -19,9 +19,7 @@ public class Principal {
 		System.out.println("9 --> Salir");
 		opcion = teclado.nextInt();
 		
-		switch (opcion)
-		
-		{
+		switch (opcion)	{
 			
 			case 1:
 				//Login de usuario
@@ -35,8 +33,11 @@ public class Principal {
 					
 					if(user.getTipousr() == 1)
 						System.out.println("Acceso a menu de administracion");
+						
 						else
 						System.out.println("Acceso a menu de usuarios");
+						Menuuser nuevousuario = new Menuuser(user, null);
+						nuevousuario.mostrarmenu();
 				}
 				break;
 				
@@ -45,7 +46,7 @@ public class Principal {
 				Registro registro = new Registro(0, null, null, null, null, 0, false, false);
 				registro.cargardatos();
 				break;
-				
+		
 			case 9:
 				System.out.println("Cinemar le da las gracias por su preferencia,"
 						+ "lo esperamos pronto");
