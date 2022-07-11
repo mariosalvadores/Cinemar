@@ -3,7 +3,7 @@ CREATE DATABASE cinemar;
 USE cinemar;
 
 CREATE TABLE pelicula (
-                id_pelicula INT AUTO_INCREMENT,
+                id_pelicula INT AUTO_INCREMENT NOT NULL,
                 titulo_pelicula VARCHAR(30) NOT NULL,
                 genero_pelicula INT NOT NULL,
                 tipo_pelicula INT NOT NULL,
@@ -11,12 +11,13 @@ CREATE TABLE pelicula (
                 duracion_pelicula TIME NOT NULL,
                 horario_pelicula TIME NOT NULL,
                 estado_pelicula BOOLEAN NOT NULL,
+                butacas_pelicula INT NOT NULL,
                 PRIMARY KEY (id_pelicula)
 );
 
 
 CREATE TABLE sala (
-                id_sala INT AUTO_INCREMENT,
+                id_sala INT AUTO_INCREMENT NOT NULL,
                 id_pelicula INT,
                 tipo_sala BOOLEAN NOT NULL,
                 nombre_sala VARCHAR(10) NOT NULL,
@@ -25,18 +26,8 @@ CREATE TABLE sala (
 );
 
 
-CREATE TABLE butaca (
-                id_butaca INT AUTO_INCREMENT,
-                id_sala INT,
-                tipo_butaca BOOLEAN NOT NULL,
-                fila_butaca INT NOT NULL,
-                columna_butaca INT NOT NULL,
-                PRIMARY KEY (id_butaca)
-);
-
-
 CREATE TABLE usuario (
-                id_usuario INT AUTO_INCREMENT,
+                id_usuario INT AUTO_INCREMENT NOT NULL,
                 nombre_usuario VARCHAR(15) NOT NULL,
                 apellido_usuario VARCHAR(15) NOT NULL,
                 email_usuario VARCHAR(40) NOT NULL,
@@ -49,15 +40,17 @@ CREATE TABLE usuario (
 
 
 CREATE TABLE reserva (
-                id_reserva INT AUTO_INCREMENT,
+                id_reserva INT AUTO_INCREMENT NOT NULL,
+                id_sala INT NOT NULL,
                 id_pelicula INT,
                 id_usuario INT,
+                cant_butacas INT NOT NULL,
                 PRIMARY KEY (id_reserva)
 );
 
 
 CREATE TABLE descuento (
-                id_descuento INT AUTO_INCREMENT,
+                id_descuento INT AUTO_INCREMENT NOT NULL,
                 id_reserva INT,
                 porcentaje_descuento INT NOT NULL,
                 PRIMARY KEY (id_descuento)
@@ -76,7 +69,7 @@ REFERENCES pelicula (id_pelicula)
 ON DELETE NO ACTION
 ON UPDATE NO ACTION;
 
-ALTER TABLE butaca ADD CONSTRAINT sala_butaca_fk
+ALTER TABLE reserva ADD CONSTRAINT sala_reserva_fk
 FOREIGN KEY (id_sala)
 REFERENCES sala (id_sala)
 ON DELETE NO ACTION

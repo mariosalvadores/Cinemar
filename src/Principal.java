@@ -23,16 +23,20 @@ public class Principal {
 			
 			case 1:
 				//Login de usuario
-				System.out.println("Ingrese email: ");
+				System.out.print("Ingrese email: ");
 				String email = teclado.next();
-				System.out.println("Ingrese password: ");
+				System.out.print("Ingrese password: ");
 				String password = teclado.next();
 				Login login = new Login(email,password);
 				Usuario user = login.ingresar();
 				while(user!=null) {
-					
-					if(user.getTipousr() == 1)
+					System.out.println(user.getTipousr());
+					if(user.getTipousr() == 1) {
+						
 						System.out.println("Acceso a menu de administracion");
+						Menuadmin nuevoadmin = new Menuadmin(user,null);
+						nuevoadmin.mostrarmenu();
+					}
 						
 						else
 						System.out.println("Acceso a menu de usuarios");
@@ -40,7 +44,7 @@ public class Principal {
 						nuevousuario.mostrarmenu();
 				}
 				break;
-				
+			
 			case 2:
 				//Registro de usario
 				Registro registro = new Registro(0, null, null, null, null, 0, false, false);
@@ -49,7 +53,8 @@ public class Principal {
 		
 			case 9:
 				System.out.println("Cinemar le da las gracias por su preferencia,"
-						+ "lo esperamos pronto");
+						+ " lo esperamos pronto");
+				System.exit(0);
 				break;
 			default:
 				System.out.println("Opcion no valida !!");
