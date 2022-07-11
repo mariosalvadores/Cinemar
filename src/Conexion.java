@@ -22,7 +22,7 @@ public class Conexion {
 
 		try {
 			Class.forName(JDBC_DRIVER);
-			//System.out.println("Conectando a la bdd...");
+			
 			conn=DriverManager.getConnection(DB_URL,USER,PASS);
 
          }catch(Exception e) {
@@ -33,7 +33,7 @@ public class Conexion {
 	
 	public ResultSet devuelveConsulta(String sql) throws SQLException {
 		
-		//System.out.println("Creando Consulta");
+		
 		stmt=conn.createStatement();
 		ResultSet rs=stmt.executeQuery(sql);
 		

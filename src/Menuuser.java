@@ -63,7 +63,7 @@ public class Menuuser {
 						String horario = rs.getString("horario_pelicula");
 						
 						
-						System.out.println("ID: "+id_pelicula+"--> Titulo: "+
+						System.out.println("ID"+id_pelicula+" --> Titulo: "+
 								titulo+"\r\nResumen: "+resumen+
 								"\r\nHorario: "+horario);
 						}
@@ -104,8 +104,8 @@ public class Menuuser {
 							+ "where reserva.id_usuario ="+this.user.getId_usuario();
 			 		rs = conexion.devuelveConsulta(sql);
 					while(rs.next()) 
-						System.out.println("--> "+rs.getString("titulo_pelicula")+" --> "+rs.getString("horario_pelicula")
-								+" --> "+rs.getInt("cant_butacas")+" --> "+rs.getInt("id_sala"));
+						System.out.println("Titulo--> "+rs.getString("titulo_pelicula")+" Horario--> "+rs.getString("horario_pelicula")
+								+" Cant. Butacas--> "+rs.getInt("cant_butacas")+" IDsala--> "+rs.getInt("id_sala"));
 			 		
 			 		
 			 		break;

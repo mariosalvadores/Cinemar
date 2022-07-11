@@ -4,8 +4,7 @@ import java.util.Scanner;
 public class Principal {
 
 	public static void main(String[] args) throws SQLException {
-	// Flujo Principal del programa
-		
+	
 	// Menu principal de ingreso
 	
 	Scanner teclado = new Scanner(System.in);
@@ -53,7 +52,7 @@ public class Principal {
 		
 			case 9:
 				System.out.println("Cinemar le da las gracias por su preferencia,"
-						+ " lo esperamos pronto");
+						+ "lo esperamos pronto");
 				System.exit(0);
 				break;
 			default:

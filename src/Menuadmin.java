@@ -53,7 +53,8 @@ public class Menuadmin {
 			 opcion = teclado.nextInt();
 			 switch (opcion) {
 			 case 1:
-				 //Crear Sala 
+				 //Crear Sala
+				 
 				 System.out.print("Ingrese nuevo nombre de la sala: ");
 				 nombresala = teclado.next();
 				 System.out.print("Ingrese nuevo tipo de sala (0-> 2D, 1-> 3D: ");
@@ -88,9 +89,7 @@ public class Menuadmin {
 				 sql= "update sala set nombre_sala = '"+nombresala+"' , tipo_sala = '"
 						 +tiposala+"', estado_sala = "+estadosala;
 				 conexion.realizaConsulta(sql);
-				 
-				 
-				 
+				 		 			 
 				 break;
 			 case 3:
 				 //Eliminar sala 
@@ -110,8 +109,6 @@ public class Menuadmin {
 				 idsala = teclado.nextInt();
 				 sql = "delete from sala where id_sala = "+idsala;
 				 conexion.realizaConsulta(sql);
-				 
-				 
 				 
 				 break;
 			 
@@ -135,11 +132,10 @@ public class Menuadmin {
 				 sql = "update descuento set porcentaje_descuento = "+porcentajedto+" where id_descuento = "+iddescuento;
 				 conexion.realizaConsulta(sql);
 				 
-				 
-				 
 				 break;
 			 case 5:
 				 //Ver todas las reservas
+				 
 				 System.out.println("Historial de reservas");
 			 	 sql = "select titulo_pelicula,horario_pelicula,cant_butacas,reserva.id_usuario,reserva.id_sala from reserva "
 							+ "join pelicula on reserva.id_pelicula = pelicula.id_pelicula ";
@@ -147,11 +143,10 @@ public class Menuadmin {
 				 while(rs.next()) {
 					 
 				 
-					 System.out.println("--> "+rs.getString("titulo_pelicula")+" --> "+rs.getString("horario_pelicula")
-				 		+" --> "+rs.getInt("cant_butacas")+" --> "+rs.getInt("id_usuario")+" --> "+rs.getInt("id_sala"));
+					 System.out.println("Titulo--> "+rs.getString("titulo_pelicula")+" Horario --> "+rs.getString("horario_pelicula")
+				 		+" Butacas Disp.--> "+rs.getInt("cant_butacas")+" IDusuario--> "+rs.getInt("id_usuario")+" IDsala--> "+rs.getInt("id_sala"));
 				 }
-				 
-				 
+				 				 
 				 break;
 			 case 6:
 				 //Ver reservas de un cliente
@@ -165,10 +160,9 @@ public class Menuadmin {
 				 while(rs.next()) {
 					 
 				 
-					 System.out.println("--> "+rs.getString("titulo_pelicula")+" --> "+rs.getString("horario_pelicula")
-				 		+" --> "+rs.getInt("cant_butacas")+" --> "+rs.getInt("id_sala"));
+					 System.out.println("Titulo--> "+rs.getString("titulo_pelicula")+" Horario--> "+rs.getString("horario_pelicula")
+				 		+" Butacas Disp.--> "+rs.getInt("cant_butacas")+" IDsala--> "+rs.getInt("id_sala"));
 				 }
-				 
 				 
 				 break;
 			 case 9:

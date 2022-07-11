@@ -1,9 +1,10 @@
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-/* Login de usuarios
+/* 
+ * Login de usuarios
  * 
- * */
+ */
 
 public class Login {
 	private String email;
@@ -41,7 +42,7 @@ public class Login {
 		ResultSet rs = conexion.devuelveConsulta(consulta);
 		
 		while(rs.next()) {
-			System.out.println("Ingreso exitoso!");
+			System.out.println("Ingreso exitoso");
 			
 			int id_user = rs.getInt("id_usuario");
 			String nombre = rs.getString("nombre_usuario");
@@ -52,7 +53,6 @@ public class Login {
 			Boolean tarjetauser = rs.getBoolean("tarjeta_usuario");
 			Boolean estadouser = rs.getBoolean("estado_usuario");
 			user = new Usuario(id_user,nombre,apellido,email,passuser,tipouser,tarjetauser,estadouser);
-			//System.out.println("Bienvenido/a : "+nombre);
 			return user;
 					
 		}
